@@ -7,6 +7,7 @@ class Beverage {
         this.alcoholContent = alcoholContent;
         this.dateAdded = new Date();
         this.tax = 0.22;
+        this.quantity = 0;
     }
 
     get costumerPrice(){
@@ -31,6 +32,29 @@ class Beverage {
         description += "costumerPrice: " + this.costumerPrice + "\n";
         description += "code: " + this.code + "\n";
         return description;
+    }
+
+    addQuantity(quantityToAdd){
+        // this.quantity = this.quantity + quantityToAdd;
+        this.quantity += quantityToAdd;
+    }
+
+    removeQuantity(quantityToRemove){
+        const newValue = this.quantity - quantityToRemove;
+        if (newValue < 0) {
+            return false;
+        }
+        else {
+            this.quantity = newValue;
+            return true;
+        }
+
+        // if (this.quantity >= quantityToRemove) {
+        //     this.quantity -= quantityToRemove;
+        //     return this.quantity;
+        // } else {
+        //     return "errore!!!"
+        // }
     }
 }
  

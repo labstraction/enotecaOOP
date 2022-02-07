@@ -97,4 +97,29 @@ class Cellar{
     }
 
 
+    AddQuantityToCode(code, quantity){
+        const searchResultArray = this.searchByNameOrCode(code);
+        if (searchResultArray.length === 1) {
+            const beverage = searchResultArray[0];
+            beverage.addQuantity(quantity)
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    removeQuantityToCode(code, quantity){
+        const searchResultArray = this.searchByNameOrCode(code);
+        if (searchResultArray.length === 1) {
+            const beverage = searchResultArray[0];
+            if (beverage.removeQuantity(quantity)){
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
 }
